@@ -16,7 +16,8 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 	response := map[string]bool {"working": true}
 	jsonResponse, err := json.Marshal(response)
 	if err != nil {
-	 return
+		log.Errorf("error writing json - %s", err.Error())
+	 	return
 	}
 	w.Write(jsonResponse)
 }

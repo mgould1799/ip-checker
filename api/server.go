@@ -30,7 +30,6 @@ func (s Server) Start() {
     flag.Parse()
 
     r := mux.NewRouter()
-    // Add your routes as needed
 
 	r.HandleFunc("/check-ip", s.checkIpInWhiteList).Methods("GET")
 	r.HandleFunc("/healthz", healthz).Methods("GET")
