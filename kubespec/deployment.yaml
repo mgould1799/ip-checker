@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+        name: ip-checker
+spec: 
+        replicas: 1 
+        selector: 
+                matchLabels: 
+                        app: ip-checker
+        template: 
+                metadata: 
+                        labels: 
+                                app: ip-checker
+                spec: 
+                        containers: 
+                        - name: ip-checker 
+                          image: ip-checker
+                          imagePullPolicy: Never 
+                          ports: 
+                          - containerPort: 8080
